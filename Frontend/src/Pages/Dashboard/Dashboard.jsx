@@ -85,70 +85,70 @@ const Dashboard = () => {
     }
 
     // exec only if login:
-    return (isLogin &&
+   return (isLogin &&
         <div className='md:w-[80%] md:mx-auto'>
 
             {/* main */}
             <div className="drawer lg:drawer-open">
                 <input id="sidebar_drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content px-4">
-                    <div className="flex items-center justify-between ">
+                    <div className="flex items-center justify-between mb-6">
                         {/* Page content here */}
-                        <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden">
-                            <Bars3BottomLeftIcon className='w-6 h-6' />
+                        <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden p-2 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer">
+                            <Bars3BottomLeftIcon className='w-6 h-6 text-gray-700' />
                         </label>
-                        <h2 className='text-xl'>Products</h2>
+                        <h2 className='text-2xl font-semibold text-gray-800'>Products</h2>
                         {/* search bar */}
-                        <form action="" className='hidden md:flex items-center w-1/2'>
-                            <input type="text" placeholder="Search Procuct" className="input input-bordered rounded-full h-10 lg:w-full" />
-                            <button type="submit" className='serch p-2 bg-blue-500 text-white rounded-md ms-2'>
+                        <div className='hidden md:flex items-center w-1/2 gap-2'>
+                            <input type="text" placeholder="Search Product" className="input input-bordered rounded-full h-10 lg:w-full px-4 py-2 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
+                            <button type="submit" className='p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-200 shadow-sm'>
                                 <MagnifyingGlassIcon className='w-6 h-6' />
                             </button>
-                        </form>
+                        </div>
                         {/* search bar */}
                         {/* add btn */}
-                        <button onClick={showAdd} className='p-2 bg-primary text-white rounded-md ms-2'>
+                        <button onClick={showAdd} className='p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-200 shadow-sm ms-2'>
                             <PlusCircleIcon className='w-6 h-6' />
                         </button>
                     </div>
 
                     {/* search bar mobile*/}
-                    <form action="" className='flex md:hidden items-center w-full mt-4'>
-                        <input type="text" placeholder="Search Procuct" className="input input-bordered rounded-full h-10 w-full" />
-                        <button type="submit" className='serch p-2 bg-blue-500 text-white rounded-md ms-2'>
+                    <div className='flex md:hidden items-center w-full mt-4 mb-6 gap-2'>
+                        <input type="text" placeholder="Search Product" className="input input-bordered rounded-full h-10 w-full px-4 py-2 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
+                        <button type="submit" className='p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-200 shadow-sm ms-2'>
                             <MagnifyingGlassIcon className='w-6 h-6' />
                         </button>
-                    </form>
+                    </div>
                     {/* search bar */}
 
                     {/* table start */}
                     <div className="overflow-auto max-h-[80vh]">
-                        <table className="table">
+                        <table className="table bg-white rounded-xl border border-purple-100 shadow-sm">
                             {/* head */}
-                            <thead>
+                            <thead className='bg-gray-50 border-b border-gray-200'>
                                 <tr>
-                                    <th>S.No</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
-                                    <th>Action</th>
+                                    <th className='text-gray-700 font-semibold'>S.No</th>
+                                    <th className='text-gray-700 font-semibold'>Name</th>
+                                    <th className='text-gray-700 font-semibold'>Price</th>
+                                    <th className='text-gray-700 font-semibold'>Stock</th>
+                                    <th className='text-gray-700 font-semibold'>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {products && products.length > 0 && [...products].reverse().map((elem, i, arr) => {
                                     return (
-                                        <tr className="hover" key={i}>
-                                            <th>{i + 1}</th>
-                                            <td>{elem.p_name}</td>
-                                            <td>Rs.{elem.p_price}</td>
-                                            <td>{elem.p_stock}</td>
-                                            <td className='flex'>
-                                                <button className='btn btn-primary btn-sm text-white' onClick={() => {
+                                        <tr className="hover hover:bg-purple-50 transition-colors border-b border-gray-100" key={i}>
+                                            <th className='text-gray-600'>{i + 1}</th>
+                                            <td className='text-gray-800'>{elem.p_name}</td>
+                                            <td className='text-gray-600'>Rs.{elem.p_price}</td>
+                                            <td className='text-gray-600'>{elem.p_stock}</td>
+                                            <td className='flex gap-2'>
+                                                <button className='btn btn-primary bg-purple-600 hover:bg-purple-700 text-white border-none btn-sm px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm font-medium' onClick={() => {
                                                     showUpdate(elem._id, i, elem.p_name, elem.p_price, elem.p_stock)
                                                 }}>Update</button>
 
-                                                <button className='btn btn-error btn-sm mx-2' onClick={() => {
+                                                <button className='btn btn-error bg-red-500 hover:bg-red-600 text-white border-none btn-sm px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm font-medium' onClick={() => {
                                                     showDelete(elem._id)
                                                 }}>Delete</button>
                                             </td>
@@ -159,23 +159,23 @@ const Dashboard = () => {
                             </tbody>
                         </table>
                     </div>
-                    {isFetchFinished && products.length <= 0 && <div className='text-sm px-2 text-center'>No Items Found!<br/>Click on plus to Get Started!</div>}
+                    {isFetchFinished && products.length <= 0 && <div className='text-sm px-2 text-center py-8 text-gray-500 bg-white rounded-xl border border-gray-200 mt-4'>No Items Found!<br/>Click on plus to Get Started!</div>}
                     {/* table end */}
                 </div>
 
                 <div className="drawer-side md:h-[80vh] h-full">
                     <label htmlFor="sidebar_drawer" aria-label="close sidebar" className="drawer-overlay"></label>
 
-                    <Aside/>
+                    {Aside && <Aside/>}
                     
                 </div>
             </div>
             {/* main end */}
 
             {/* modal */}
-            <ModalAdd id="add_modal" title="Add Product" fetchProducts={fetchProducts} />
-            <ModalDelete id="delete_modal" pid={pid} title="Are u sure to delete?" fetchProducts={fetchProducts}/>
-            <ModalUpdate id="update_modal" title="Update Details" updateObj={updateObj} fetchProducts={fetchProducts} />
+            {ModalAdd && <ModalAdd id="add_modal" title="Add Product" fetchProducts={fetchProducts} />}
+            {ModalDelete && <ModalDelete id="delete_modal" pid={pid} title="Are u sure to delete?" fetchProducts={fetchProducts}/>}
+            {ModalUpdate && <ModalUpdate id="update_modal" title="Update Details" updateObj={updateObj} fetchProducts={fetchProducts} />}
         </div>
     )
 }
