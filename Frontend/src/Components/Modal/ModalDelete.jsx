@@ -36,26 +36,26 @@ const Modal = (props) => {
             console.log('error', error)
         }
     }
-    return (
-        <div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            {/* <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button> */}
-            <dialog id={props.id} className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">{props.title}</h3>
-                    <p className="py-4">{props.pid}</p>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn mx-2 px-6 btn-sm bg-red-700 text-white" onClick={handleDelete}>yes</button>
-                            <button className="btn mx-2 px-6 btn-sm">No</button>
-                        </form>
-                    </div>
+ return (
+    <div>
+        {/* Open the modal using document.getElementById('ID').showModal() method */}
+        {/* <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button> */}
+        <dialog id={props.id} className="modal">
+            <div className="modal-box bg-white rounded-2xl shadow-2xl border border-purple-100 p-8 max-w-md">
+                <h3 className="font-semibold text-2xl text-gray-800 mb-6">{props.title}</h3>
+                <p className="py-4 text-gray-600">{props.pid}</p>
+                <div className="modal-action mt-8">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn mx-2 px-6 btn-sm bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-lg transition-colors duration-200 shadow-sm border-none" onClick={handleDelete}>yes</button>
+                        <button className="btn mx-2 px-6 btn-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-lg transition-colors duration-200 border-none">No</button>
+                    </form>
                 </div>
-            </dialog>
-            <Toaster />
-        </div>
-    )
+            </div>
+        </dialog>
+        <Toaster />
+    </div>
+)
 }
 
 export default Modal
