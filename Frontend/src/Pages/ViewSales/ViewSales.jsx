@@ -91,80 +91,96 @@ const ViewSales = () => {
     }
   }, [])
 
-  return (
+ return (
     <div className='md:w-[80%] md:mx-auto'>
 
       {/* main */}
       <div className="drawer lg:drawer-open">
         <input id="sidebar_drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content px-4">
-          <div className="flex items-center justify-between ">
+          <div className="flex items-center justify-between mb-6">
             {/* Page content here */}
-            <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden">
-              <Bars3BottomLeftIcon className='w-6 h-6' />
+            <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden p-2 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer">
+              <Bars3BottomLeftIcon className='w-6 h-6 text-gray-700' />
             </label>
-            <h2 className='text-xl w-full text-center md:text-start'>My Sales</h2>
+            <h2 className='text-2xl font-semibold w-full text-center md:text-start text-gray-800'>My Sales</h2>
             {/* search bar */}
-            <form action="" className='hidden md:flex items-center w-1/2'>
-              <input type="text" placeholder="Search in sales" className="input input-bordered rounded-full h-10 lg:w-full" />
-              <button type="submit" className='serch p-2 bg-blue-500 text-white rounded-md ms-2'>
+            <div className='hidden md:flex items-center w-1/2 gap-2'>
+              <input 
+                type="text" 
+                placeholder="Search in sales" 
+                className="input input-bordered rounded-full h-10 lg:w-full px-4 py-2 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" 
+              />
+              <button type="submit" className='p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-200 shadow-sm'>
                 <MagnifyingGlassIcon className='w-6 h-6' />
               </button>
-            </form>
+            </div>
             {/* search bar */}
           </div>
 
           {/* search bar mobile*/}
-          <form action="" className='flex md:hidden items-center w-full mt-4'>
-            <input type="text" placeholder="Search in sales" className="input input-bordered rounded-full h-10 w-full" />
-            <button type="submit" className='serch p-2 bg-blue-500 text-white rounded-md ms-2'>
+          <div className='flex md:hidden items-center w-full mt-4 mb-6 gap-2'>
+            <input 
+              type="text" 
+              placeholder="Search in sales" 
+              className="input input-bordered rounded-full h-10 w-full px-4 py-2 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" 
+            />
+            <button type="submit" className='p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-200 shadow-sm'>
               <MagnifyingGlassIcon className='w-6 h-6' />
             </button>
-          </form>
+          </div>
           {/* search bar */}
 
           {/* table start */}
-          {salesList.length <= 0 ? <div className='text-sm px-2 text-center'>No Items Found</div>
+          {salesList.length <= 0 ? 
+            <div className='text-sm px-2 text-center py-8 text-gray-500 bg-white rounded-xl border border-gray-200'>
+              No Items Found
+            </div>
             :
-            <div className='overflow-auto'>
-              <table className="table">
+            <div className='overflow-auto bg-white rounded-xl border border-purple-100 shadow-sm'>
+              <table className="table w-full">
                 {/* head */}
-                <thead>
+                <thead className='bg-gray-50 border-b border-gray-200'>
                   <tr>
-                    <th>S.No</th>
-                    <th>Cust Name</th>
-                    <th>Cust contact</th>
-                    <th>Cust email</th>
-                    <th>Action</th>
+                    <th className='text-gray-700 font-semibold'>S.No</th>
+                    <th className='text-gray-700 font-semibold'>Cust Name</th>
+                    <th className='text-gray-700 font-semibold'>Cust contact</th>
+                    <th className='text-gray-700 font-semibold'>Cust email</th>
+                    <th className='text-gray-700 font-semibold'>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* row 1 */}
                   {[...salesList].reverse().map((elem, inx) => {
                     return (
-                      <tr className="hover" key={inx}>
-                        <th>{inx + 1}</th>
-                        <td>{elem.cust_name}</td>
-                        <td>{elem.cust_contact}</td>
-                        <td>{elem.cust_email} </td>
-                        <td><button
-                          onClick={() => {
-                            setPrintInvoiceData({
-                              "custmrDetails": {
-                                cust_id: elem._id,
-                                cust_order_id: (salesList.length - inx),
-                                cust_name: elem.cust_name,
-                                cust_email: elem.cust_email,
-                                cust_contact: elem.cust_contact,
-                                "cartItems": elem.cartItems
-                              }
-                            })
-                            document.getElementById("invoice_modal").showModal();
-                          }}
-                          className='btn btn-sm btn-primary '>print invoice</button>
+                      <tr className="hover:bg-purple-50 transition-colors border-b border-gray-100" key={inx}>
+                        <th className='text-gray-600'>{inx + 1}</th>
+                        <td className='text-gray-800'>{elem.cust_name}</td>
+                        <td className='text-gray-600'>{elem.cust_contact}</td>
+                        <td className='text-gray-600'>{elem.cust_email}</td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              setPrintInvoiceData({
+                                "custmrDetails": {
+                                  cust_id: elem._id,
+                                  cust_order_id: (salesList.length - inx),
+                                  cust_name: elem.cust_name,
+                                  cust_email: elem.cust_email,
+                                  cust_contact: elem.cust_contact,
+                                  "cartItems": elem.cartItems
+                                }
+                              })
+                              document.getElementById("invoice_modal").showModal();
+                            }}
+                            className='btn btn-sm bg-purple-600 hover:bg-purple-700 text-white border-none px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm font-medium'>
+                            print invoice
+                          </button>
                           <button
                             onClick={() => { handleDelete(elem._id) }}
-                            className='btn btn-sm btn-error ms-2'>Delete</button>
+                            className='btn btn-sm bg-red-500 hover:bg-red-600 text-white border-none ms-2 px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm font-medium'>
+                            Delete
+                          </button>
                         </td>
                       </tr>
                     )
@@ -178,15 +194,13 @@ const ViewSales = () => {
 
         <div className="drawer-side md:h-[80vh] h-full">
           <label htmlFor="sidebar_drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-
-          <Aside />
-
+          {Aside && <Aside />}
         </div>
       </div>
       {/* main end */}
 
-      <ModalInvoice id="invoice_modal" title="Download Invoice" InvoiceDetails={printInvoiceData} />
-      <Toaster />
+      {ModalInvoice && <ModalInvoice id="invoice_modal" title="Download Invoice" InvoiceDetails={printInvoiceData} />}
+      {Toaster && <Toaster />}
     </div>
   )
 }
