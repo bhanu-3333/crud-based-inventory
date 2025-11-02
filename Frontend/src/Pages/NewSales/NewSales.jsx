@@ -163,7 +163,7 @@ const NewSales = () => {
     }
   }
 
-  return (
+ return (
     <div className='md:w-[80%] md:mx-auto'>
       {/* main */}
       <div className="drawer lg:drawer-open">
@@ -174,69 +174,69 @@ const NewSales = () => {
 
             {/* top heading bar */}
             <div className="flex items-center justify-between my-4">
-              <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden">
-                <Bars3BottomLeftIcon className='w-6 h-6' />
+              <label htmlFor="sidebar_drawer" className="drawer-button lg:hidden p-2 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer">
+                <Bars3BottomLeftIcon className='w-6 h-6 text-gray-700' />
               </label>
-              <h2 className='text-xl w-full text-center'>New Sales</h2>
+              <h2 className='text-2xl font-semibold w-full text-center text-gray-800'>New Sales</h2>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} id='form_new_sales'>
-              <h4 className='text-xl capitalize font-bold'>customer details </h4>
+              <h4 className='text-xl capitalize font-semibold text-gray-800 mb-4'>customer details </h4>
               <div className="form-box flex flex-wrap md:flex-nowrap">
                 <div className='w-full'>
                   <label className="form-control lg:max-w-xs px-2">
-                    <div className="label">
-                      <span className="label-text">Customer Name</span>
+                    <div className="label mb-2">
+                      <span className="label-text text-sm font-medium text-gray-700">Customer Name</span>
                     </div>
                     <input type="text"
                       name='cust_name'
                       {...register('cust_name', { validate: validateCustName })}
-                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs " />
+                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
                   </label>
-                  <div className="label-text text-xs text-error h-8 p-2">
+                  <div className="label-text text-xs text-red-500 h-8 p-2">
                     {errors.cust_name && <p>{errors.cust_name.message}</p>}
                   </div>
                 </div>
 
                 <div className="w-full">
                   <label className="form-control w-full lg:max-w-xs px-2">
-                    <div className="label">
-                      <span className="label-text">Customer Email</span>
+                    <div className="label mb-2">
+                      <span className="label-text text-sm font-medium text-gray-700">Customer Email</span>
                     </div>
                     <input type="email"
                       name='cust_email'
                       {...register('cust_email', { validate: validateCustEmail })}
-                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs " />
+                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
                   </label>
-                  <div className="label-text text-xs text-error h-8 p-2">
+                  <div className="label-text text-xs text-red-500 h-8 p-2">
                     {errors.cust_email && <p>{errors.cust_email.message}</p>}
                   </div>
                 </div>
 
                 <div className="w-full">
                   <label className="form-control w-full lg:max-w-xs px-2">
-                    <div className="label">
-                      <span className="label-text">Customer Contact</span>
+                    <div className="label mb-2">
+                      <span className="label-text text-sm font-medium text-gray-700">Customer Contact</span>
                     </div>
                     <input type="number"
                       name='cust_contact'
                       {...register('cust_contact', { validate: validateCustContact })}
-                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs " />
+                      placeholder="Type here" className="input input-bordered w-full lg:max-w-xs px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
                   </label>
-                  <div className="label-text text-xs text-error h-8 p-2">
+                  <div className="label-text text-xs text-red-500 h-8 p-2">
                     {errors.cust_contact && <p>{errors.cust_contact.message}</p>}
                   </div>
                 </div>
               </div>
 
               {/* order details */}
-              <h4 className='text-xl mt-3  capitalize font-bold'>order details </h4>
-              <div className="form-box flex items-center flex-wrap border-b-2 pb-2">
+              <h4 className='text-xl mt-6 capitalize font-semibold text-gray-800 mb-4'>order details </h4>
+              <div className="form-box flex items-center flex-wrap border-b-2 border-gray-200 pb-4 bg-white rounded-xl p-4 shadow-sm mb-4">
                 <label className="form-control w-full lg:max-w-xs px-2">
-                  <div className="label ">
-                    <span className="label-text ">Select Product</span>
+                  <div className="label mb-2">
+                    <span className="label-text text-sm font-medium text-gray-700">Select Product</span>
                   </div>
-                  <select name='select_product_id' className="select " onChange={handleSelectProductChange} defaultValue={0}>
+                  <select name='select_product_id' className="select px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" onChange={handleSelectProductChange} defaultValue={0}>
                     <option disabled value={0}>Select Product</option>
                     {products.map((elem, i, arr) => {
                       return (
@@ -246,9 +246,9 @@ const NewSales = () => {
                   </select>
                 </label>
 
-                <label className="form-control  px-2">
-                  <div className="label">
-                    <span className="label-text">Enter Quantity</span>
+                <label className="form-control px-2">
+                  <div className="label mb-2">
+                    <span className="label-text text-sm font-medium text-gray-700">Enter Quantity</span>
                   </div>
                   <input type="number"
                     name='select_quantity'
@@ -256,12 +256,12 @@ const NewSales = () => {
                     min={1}
                     onChange={handleSelectQuantityChange}
                     placeholder="Type here"
-                    className="input input-bordered w-24" />
+                    className="input input-bordered w-24 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
                 </label>
 
                 <label className="form-control px-2">
-                  <div className="label">
-                    <span className="label-text">Discount in %</span>
+                  <div className="label mb-2">
+                    <span className="label-text text-sm font-medium text-gray-700">Discount in %</span>
                   </div>
                   <input type="number"
                     name='select_discount'
@@ -270,29 +270,29 @@ const NewSales = () => {
                     max={100}
                     onChange={handleSelectDiscountChange}
                     placeholder="Type here"
-                    className="input input-bordered  w-24" />
+                    className="input input-bordered w-24 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all" />
                 </label>
 
                 <label className="form-control px-2">
-                  <div className="label">
-                    <span className="label-text">Stock</span>
+                  <div className="label mb-2">
+                    <span className="label-text text-sm font-medium text-gray-700">Stock</span>
                   </div>
                   <input type="number"
                     name='select_product_stock'
                     value={selectedProductDetails.stock}
                     disabled
-                    className="input input-bordered  w-24" />
+                    className="input input-bordered w-24 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-500 cursor-not-allowed" />
                 </label>
 
                 <label className="form-control w-24">
-                  <div className="label">
-                    <span className="label-text">SubTotal</span>
+                  <div className="label mb-2">
+                    <span className="label-text text-sm font-medium text-gray-700">SubTotal</span>
                   </div>
-                  <input type="text" placeholder="Type here" value={selectedProductDetails.subtotal} className="input input-bordered w-24 " disabled />
+                  <input type="text" placeholder="Type here" value={selectedProductDetails.subtotal} className="input input-bordered w-24 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-500 cursor-not-allowed" disabled />
                 </label>
                 <div className="text-center p-2">
-                  <p className='pt-2 hidden lg:block'>Insert</p>
-                  <button onClick={handleAddToCart} className="btn btn-primary ">Insert Product</button>
+                  <p className='pt-2 hidden lg:block text-sm font-medium text-gray-700 mb-1'>Insert</p>
+                  <button onClick={handleAddToCart} className="btn btn-primary bg-purple-600 hover:bg-purple-700 text-white border-none px-6 py-3 rounded-lg transition-colors duration-200 shadow-sm font-medium">Insert Product</button>
                 </div>
               </div>
               {/* </form> */}
@@ -302,46 +302,46 @@ const NewSales = () => {
               {/* table start */}
               {cartItems.length > 0 &&
                 <div className="overflow-auto max-h-[80vh]">
-                  <table className="table cart_table">
+                  <table className="table cart_table bg-white rounded-xl border border-purple-100 shadow-sm">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-gray-50 border-b border-gray-200'>
                       <tr className='text-left'>
-                        <th>S.No</th>
-                        <th>Name</th>
-                        <th>Qunatity</th>
-                        <th>unit Price</th>
-                        <th>Discount</th>
-                        <th>Action</th>
-                        <th>subtotal</th>
+                        <th className='text-gray-700 font-semibold'>S.No</th>
+                        <th className='text-gray-700 font-semibold'>Name</th>
+                        <th className='text-gray-700 font-semibold'>Qunatity</th>
+                        <th className='text-gray-700 font-semibold'>unit Price</th>
+                        <th className='text-gray-700 font-semibold'>Discount</th>
+                        <th className='text-gray-700 font-semibold'>Action</th>
+                        <th className='text-gray-700 font-semibold'>subtotal</th>
                       </tr>
                     </thead>
                     <tbody className='text-left'>
                       {/* row  */}
                       {cartItems.map((elem, i, arr) => {
                         return (
-                          <tr className="hover" key={i}>
-                            <th>{i + 1}</th>
-                            <td>{elem.c_name}</td>
-                            <td>{elem.c_quantity}</td>
-                            <td>Rs.{elem.c_unit_price}</td>
-                            <td>{elem.c_discount}</td>
+                          <tr className="hover hover:bg-purple-50 transition-colors border-b border-gray-100" key={i}>
+                            <th className='text-gray-600'>{i + 1}</th>
+                            <td className='text-gray-800'>{elem.c_name}</td>
+                            <td className='text-gray-600'>{elem.c_quantity}</td>
+                            <td className='text-gray-600'>Rs.{elem.c_unit_price}</td>
+                            <td className='text-gray-600'>{elem.c_discount}</td>
                             <td className='flex'>
-                              <button className='btn btn-error btn-sm mx-2' onClick={() => {
+                              <button className='btn btn-error bg-red-500 hover:bg-red-600 text-white border-none btn-sm mx-2 px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm font-medium' onClick={() => {
                                 setcartItems((prev) => prev.filter((e) => e.c_id != elem.c_id))
                               }}>Delete</button>
                             </td>
-                            <td>Rs.{elem.c_subtotal}</td>
+                            <td className='text-gray-800 font-semibold'>Rs.{elem.c_subtotal}</td>
                           </tr>
                         )
                       })}
-                      <tr className="hover">
+                      <tr className="hover hover:bg-purple-50 transition-colors bg-gray-50">
                         <td colSpan={4}></td>
-                        <td>Grand Total</td>
-                        <td>Rs.{cartItems.reduce((acc, obj) => { return (parseFloat(acc) + parseFloat(obj.c_subtotal)).toFixed(2) }, 0)}</td>
+                        <td className='text-gray-800 font-semibold'>Grand Total</td>
+                        <td className='text-purple-600 font-bold text-lg'>Rs.{cartItems.reduce((acc, obj) => { return (parseFloat(acc) + parseFloat(obj.c_subtotal)).toFixed(2) }, 0)}</td>
                       </tr>
                       <tr>
-                        <td colSpan={6} className='text-center'>
-                          <button type='submit' className='btn btn-primary'>Place Order</button></td>
+                        <td colSpan={6} className='text-center py-4'>
+                          <button type='submit' className='btn btn-primary bg-purple-600 hover:bg-purple-700 text-white border-none px-8 py-3 rounded-lg transition-colors duration-200 shadow-sm font-medium'>Place Order</button></td>
                       </tr>
                     </tbody>
                   </table>
@@ -356,13 +356,13 @@ const NewSales = () => {
         <div className="drawer-side md:h-[80vh] h-full">
           <label htmlFor="sidebar_drawer" aria-label="close sidebar" className="drawer-overlay"></label>
 
-          <Aside />
+          {Aside && <Aside />}
         </div>
         {/* sidebar ends */}
       </div>
       {/* main end */}
 
-      <Toaster />
+      {Toaster && <Toaster />}
     </div>
   )
 }
