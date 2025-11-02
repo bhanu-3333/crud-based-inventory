@@ -12,18 +12,14 @@ const Navbar = () => {
             localStorage.setItem("isDarkMode", "true")
         }
     }
-    return (
-        <div className="navbar h-10  rounded-md shadow-md mb-3">
-            <div className='md:w-[80%] md:mx-auto flex justify-between items-center'>
-                <div className='flex items-center'>
-                    <div className="icon mx-2">
-                        <BuildingStorefrontIcon className='w-6 h-6' />
+   return (
+        <div className="navbar h-16 bg-white border-b-2 border-purple-100 shadow-sm mb-6">
+            <div className='md:w-[80%] md:mx-auto flex justify-center items-center w-full'>
+                <div className='flex items-center gap-3'>
+                    <div className="icon">
+                        <BuildingStorefrontIcon className='w-8 h-8 text-purple-600' />
                     </div>
-                    <a className="text-xl font-bold">Shop Inventory Management</a>
-                </div>
-                <div className='flex items-center px-2'>
-                    <SunIcon onClick={toggleDarkMode} className='dark:hidden h-6 w-6' />
-                    <MoonIcon onClick={toggleDarkMode} className='hidden dark:block h-6 w-6' />
+                    <a className="text-xl font-semibold text-gray-800">ShopFlow</a>
                 </div>
             </div>
         </div>
@@ -31,3 +27,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+
