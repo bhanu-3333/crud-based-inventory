@@ -49,23 +49,25 @@ const Profile = () => {
       <div className="drawer lg:drawer-open">
         <input id="sidebar_drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content px-4">
-          <h3 className='flex items-center gap-x-2'><span className='font-bold text-xl'>Profile</span></h3>
+          <h3 className='flex items-center gap-x-2 mb-6'>
+            <span className='font-semibold text-2xl text-gray-800'>Profile</span>
+          </h3>
           <div className='mb-20'>
-            <div className="box mt-4   rounded shadow-lg">
-              <div className="w-full h-full items-center p-4">
-                <UserCircleIcon className="w-14 h-14" />
-                <div className=''>
-                  <div>{user.email}</div>
+            <div className="box mt-4 rounded-2xl shadow-lg bg-white border border-purple-100">
+              <div className="w-full h-full items-center p-6">
+                <div className='flex items-center gap-4 mb-6'>
+                  <UserCircleIcon className="w-16 h-16 text-purple-600" />
+                  <div className='text-gray-700 text-lg font-medium'>{user.email}</div>
                 </div>
 
-                <div className="section mt-8 text-sm flex gap-x-2">
-                  <div className="products h-20 border rounded-lg p-2 w-1/2">
-                    <div>Total Products:</div>
-                    <div className='text-xl font-bold'> {user.products.length}</div>
+                <div className="section mt-8 text-sm flex gap-4">
+                  <div className="products h-24 border border-gray-200 rounded-xl p-4 w-1/2 bg-gradient-to-br from-purple-50 to-white hover:shadow-md transition-shadow duration-200">
+                    <div className='text-gray-600 font-medium mb-2'>Total Products:</div>
+                    <div className='text-3xl font-bold text-purple-600'>{user.products.length}</div>
                   </div>
-                  <div className="sales h-20 border rounded-lg p-2 w-1/2">
-                    <div>Total Sales:</div>
-                    <div className='text-xl font-bold'> {user.sales.length} </div>
+                  <div className="sales h-24 border border-gray-200 rounded-xl p-4 w-1/2 bg-gradient-to-br from-purple-50 to-white hover:shadow-md transition-shadow duration-200">
+                    <div className='text-gray-600 font-medium mb-2'>Total Sales:</div>
+                    <div className='text-3xl font-bold text-purple-600'>{user.sales.length}</div>
                   </div>
                 </div>
 
@@ -76,9 +78,7 @@ const Profile = () => {
 
         <div className="drawer-side md:h-[80vh] h-full">
           <label htmlFor="sidebar_drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-
-          <Aside />
-
+          {Aside && <Aside />}
         </div>
       </div>
       {/* main end */}
