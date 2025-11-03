@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- <html lang="en"> -->
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
@@ -9,6 +8,11 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- ✅ Add this line for Vite's React preamble -->
+    <script type="module" src="/@vite/client"></script>
+
+    <!-- ✅ Keep this as it is -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
