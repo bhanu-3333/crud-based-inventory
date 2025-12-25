@@ -4,7 +4,6 @@ import Aside from '../../Components/Aside/Aside';
 import { useSelector } from 'react-redux';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 import baseUrl from '../../utils/baseurl';
-
 const Profile = () => {
   const isLogin = useSelector((state) => state.login.loginStatus);
   const [user,setUser] = useState({
