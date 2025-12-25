@@ -7,7 +7,6 @@ import baseUrl from '../../utils/baseurl';
 import ModalInvoice from '../../Components/Modal/ModalInvoice';
 import toast, { Toaster } from 'react-hot-toast';
 import { setSale } from '../../Redux/sales/saleSlice';
-
 const ViewSales = () => {
   const navigate = useNavigate();
   const isLogin = useSelector((state) => state.login.loginStatus);
