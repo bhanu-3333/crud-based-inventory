@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     sales : []
 };
-
 export const saleSlice = createSlice({
     name: 'sale',
     initialState,
