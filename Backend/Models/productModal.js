@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 // Note: currently thumbnail is not implemented in frontend and is empty for now!
 const productSchema = new mongoose.Schema({
     userId: {
