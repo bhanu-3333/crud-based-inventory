@@ -8,7 +8,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import baseUrl from '../../utils/baseurl';
 import { setProducts } from '../../Redux/products/productSlice';
 import { setSale } from '../../Redux/sales/saleSlice';
-
 const NewSales = () => {
   const navigate = useNavigate();
   // get all products from store:
