@@ -1,6 +1,5 @@
 import Product from "../Models/productModal.js";
 import User from "../Models/userModel.js";
-
 export const getProductsController = async (req, res) => {
     try {
         // get user
