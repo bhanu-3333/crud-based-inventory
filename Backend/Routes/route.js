@@ -11,7 +11,6 @@ route.post("/login", loginController);
 route.post("/register", registerController);
 route.get("/logout", logoutController);
 route.get("/getUser",authMiddleware, getUserController);
-
 // product endpoint://need verifytoken
 route.get("/products",authMiddleware, getProductsController); 
 route.post("/insert",authMiddleware, insertProductController); 
