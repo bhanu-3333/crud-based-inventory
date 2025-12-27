@@ -13,6 +13,7 @@ const salesSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
   cust_contact: {
     type: String,
   },
