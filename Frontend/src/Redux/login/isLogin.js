@@ -11,8 +11,6 @@ export const loginSlice = createSlice({
         },
     },
 })
-
-// Action creators are generated for each case reducer function
 export const { setloginStatus } = loginSlice.actions
 
 export default loginSlice.reducer
