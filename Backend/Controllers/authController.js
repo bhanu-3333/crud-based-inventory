@@ -11,6 +11,7 @@ export const registerController = async (req, res) => {
             return res.status(404).json({ status:false,message: 'User already exists' });
         }
 
+        
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
