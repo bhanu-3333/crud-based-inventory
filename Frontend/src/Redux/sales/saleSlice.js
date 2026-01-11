@@ -13,6 +13,7 @@ export const saleSlice = createSlice({
     },
 })
 
+
 export const { setSale } = saleSlice.actions
 
 export default saleSlice.reducer
