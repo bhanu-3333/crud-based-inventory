@@ -10,6 +10,7 @@ export const fetchProductssData = createAsyncThunk('product/fetchProductssData',
         headers: myHeaders,
         redirect: 'follow'
     };
+    
     const response = await fetch('/api/products',requestOptions);
     const jsonData = await response.json();
     // console.log(jsonData);
