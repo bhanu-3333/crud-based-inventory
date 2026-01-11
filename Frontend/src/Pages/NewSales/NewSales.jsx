@@ -26,6 +26,8 @@ const NewSales = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm({/** resolver: yupResolver(schema), */ });
 
+
+  
   const validateCustName = (name) => {
     if (!name.trim()) {
       return "Name is required!";
