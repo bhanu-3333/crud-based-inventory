@@ -14,6 +14,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    
     p_stock: {
         type: Number,
         required: true,
