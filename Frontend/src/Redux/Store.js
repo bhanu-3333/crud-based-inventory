@@ -8,6 +8,7 @@ const rootRecucer = combineReducers({
   login:loginReducer,
   sale:saleReducer
 })
+
 export const store = configureStore({
   reducer:rootRecucer,
 })
