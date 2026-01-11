@@ -14,6 +14,7 @@ const salesSchema = new mongoose.Schema({
     required: true,
   },
   
+  
   cust_contact: {
     type: String,
   },
