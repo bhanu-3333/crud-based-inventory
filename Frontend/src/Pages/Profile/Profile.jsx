@@ -11,6 +11,7 @@ const Profile = () => {
     products:[],
     sales:[]
   })
+  
   const navigate = useNavigate();
 
   const getUser = async () => {
