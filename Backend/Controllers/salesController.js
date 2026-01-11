@@ -13,6 +13,7 @@ export const getSalesController = async (req, res) => {
         res.status(500).json({ status:false,message: 'Failed getting sales data' });
     }
 };
+
 export const createNewSaleController = async (req, res) => {
     try {
         const { cust_name, cust_email, cust_contact, cartItems } = req.body;
