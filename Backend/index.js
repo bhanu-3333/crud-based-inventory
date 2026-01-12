@@ -32,6 +32,7 @@ server.get("/", (req, res) => {
 server.get("*", (req, res) => {
   res.status(404).send("404 NOT FOUND <a href='./'> Go To Home</a>");
 });
+
 // ✅ Connect to MongoDB and start the server
 connectDB()
   .then(() => {
