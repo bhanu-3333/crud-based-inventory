@@ -10,7 +10,6 @@ export const getProductsController = async (req, res) => {
         return res.status(404).json({ status:false, msessage: "failed to fetch product!",error })
     }
 }
-
 export const insertProductController = async (req, res) => {
     const obj = req.body;
     try {
