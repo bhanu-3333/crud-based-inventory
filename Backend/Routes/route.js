@@ -3,7 +3,6 @@ import { getUserController, loginController, logoutController, registerControlle
 import { deleteProductController, getProductsController, insertProductController, updateProductController } from "../Controllers/productController.js";
 import authMiddleware from "../Middleware/authMiddleware.js";
 import { createNewSaleController, deleteSaleController, getSalesController } from "../Controllers/salesController.js";
-
 export const route = Router();
 
 // auth endpoint:
