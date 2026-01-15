@@ -1,10 +1,9 @@
 import { Router } from "express";
 import { getUserController, loginController, logoutController, registerController } from "../Controllers/authController.js";
 import { deleteProductController, getProductsController, insertProductController, updateProductController } from "../Controllers/productController.js";
-import authMiddleware from "../Middleware/authMiddleware.js";
+import authMiddleware from "../Middleware/authMiddleware.js"
 import { createNewSaleController, deleteSaleController, getSalesController } from "../Controllers/salesController.js";
 export const route = Router();
-
 // auth endpoint:
 route.post("/login", loginController);
 route.post("/register", registerController);
